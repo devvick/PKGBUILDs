@@ -25,7 +25,7 @@ jobs:
       - name: Publish zerotier-systemd-manager to the AUR
         uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
-          pkgname: zeronsd
+          pkgname: zerotier-systemd-manager-bin
           pkgbuild: ./zerotier-systemd-manager/PKGBUILD
           commit_username: ${{ secrets.AUR_USERNAME }}
           commit_email: ${{ secrets.AUR_EMAIL }}
@@ -36,7 +36,7 @@ jobs:
       - name: Publish zerotier-systemd-manager-git to the AUR
         uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
-          pkgname: zeronsd
+          pkgname: zerotier-systemd-manager-git
           pkgbuild: ./zerotier-systemd-manager-git/PKGBUILD
           commit_username: ${{ secrets.AUR_USERNAME }}
           commit_email: ${{ secrets.AUR_EMAIL }}
