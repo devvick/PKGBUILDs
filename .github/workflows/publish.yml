@@ -2,8 +2,8 @@ name: aur-publish
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 jobs:
   aur-publish:
@@ -11,7 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v8.1
+
       - name: Publish zeronsd to the AUR
+        if: contains(steps.changed-files.outputs.modified_files, zeronsd/PKGBUILD)
         uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
           pkgname: zeronsd
@@ -23,6 +28,7 @@ jobs:
           ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
 
       - name: Publish zerotier-systemd-manager to the AUR
+        if: contains(steps.changed-files.outputs.modified_files, zerotier-systemd-manager-bin/PKGBUILD)
         uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
           pkgname: zerotier-systemd-manager-bin
@@ -34,6 +40,7 @@ jobs:
           ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
 
       - name: Publish zerotier-systemd-manager-git to the AUR
+        if: contains(steps.changed-files.outputs.modified_files, zerotier-systemd-manager-git/PKGBUILD)
         uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
           pkgname: zerotier-systemd-manager-git
