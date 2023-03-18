@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Publish zeronsd to the AUR
-        uses: KSXGitHub/github-actions-deploy-aur@v2.6.0
+        uses: KSXGitHub/github-actions-deploy-aur@v2.7.0
         with:
           pkgname: zeronsd-git
           pkgbuild: ./zeronsd-git/PKGBUILD
