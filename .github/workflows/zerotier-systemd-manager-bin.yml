@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Publish zerotier-systemd-manager-bin to the AUR
-        uses: KSXGitHub/github-actions-deploy-aur@v3.0.0
+        uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
         with:
           pkgname: zerotier-systemd-manager-bin
           pkgbuild: ./zerotier-systemd-manager-bin/PKGBUILD
